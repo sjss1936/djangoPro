@@ -1,4 +1,3 @@
-
 from django.contrib import admin
 from django.urls import path, include
 from pybo import views
@@ -12,12 +11,12 @@ urlpatterns = [
 
     path('answer/create/<int:question_id>/', views.answer_create, name='answer_create'),
 
-    path('answer/modify/<int:answer_id>/', views.answer_create, name='answer_modify'),
+    # 수정: answer_modify는 answer_create가 아니라 views.answer_modify와 연결해야 함
+    path('answer/modify/<int:answer_id>/', views.answer_modify, name='answer_modify'),
     path('answer/delete/<int:answer_id>/', views.answer_delete, name='answer_delete'),
 
     path('question/create/', views.question_create, name='question_create'),
 
     path('question/modify/<int:question_id>/', views.question_modify, name='question_modify'),
     path('question/delete/<int:question_id>/', views.question_delete, name='question_delete'),
-
 ]
